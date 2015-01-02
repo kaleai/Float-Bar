@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="NewApi">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/Widget.ActionBar</item>
+        <item name="actionBarStyle">@style/Widget.ActionBar</item>
+    </style>
+
+    <style name="MyAppTheme.Green" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+        <item name="actionBarStyle">@style/MyActionBarStyle</item>
+    </style>
+    
+    <style name="MyActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">  
+        <item name="android:background">#99df9c</item>  
+        <item name="titleTextStyle">@style/MyActionBarTitleText</item>
+    </style>
+    
+    <style name="MyActionBarTitleText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#fff</item>
+    </style>
+
+</resources>

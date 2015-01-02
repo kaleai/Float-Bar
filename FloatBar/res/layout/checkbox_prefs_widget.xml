@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 这里放上系统的id -->
+<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/checkbox"
+    android:layout_width="wrap_content"
+    android:layout_height="38dp"
+    android:layout_gravity="center_vertical"
+    android:button="@drawable/selector_checkbox"
+    android:clickable="false"
+    android:focusable="false" />

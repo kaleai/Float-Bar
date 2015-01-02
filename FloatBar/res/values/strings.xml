@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">透明悬浮窗</string>
+    <string name="accessibility">激活后便可以用悬浮窗来代替返回键了</string>
+	<string name="weiboName">天之界线</string>
+</resources>

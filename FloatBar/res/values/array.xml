@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 抽屉的颜色 -->
+    <string-array name="drawColor">
+        <item>黑</item>
+        <item>白</item>
+        <item>蓝</item>
+        <item>绿</item>
+        <item>红</item>
+        <item>橙</item>
+    </string-array>
+    
+    <string-array name="drawColor_value">
+        <item>black</item>
+        <item>white</item>
+        <item>blue</item>
+        <item>green</item>
+        <item>red</item>
+        <item>orange</item>
+    </string-array>
+    
+    <!-- 抽屉的文字颜色 -->
+    <string-array name="drawTextColor">
+        <item>黑</item>
+        <item>白</item>
+    </string-array>
+    
+    <string-array name="drawTextColor_value">
+        <item>black</item>
+        <item>white</item>
+    </string-array>
+    
+    <!-- 上滑呼出的操作 -->
+    <string-array name="swipUp">
+        <item>收起通知栏</item>
+        <item>调出后台任务</item>
+        <item>Home键</item>
+        <item>模拟返回键</item>
+        <item>无功能</item>
+    </string-array>
+    
+    <string-array name="swipUp_value">
+        <item>closeBar</item>
+        <item>recents</item>
+        <item>home</item>
+        <item>back</item>
+        <item>nothing</item>
+    </string-array>
+    
+     <!-- 下滑呼出的操作 -->
+    <string-array name="swipDown">
+        <item>呼出通知栏</item>
+        <item>调出后台任务</item>
+        <item>Home键</item>
+        <item>模拟返回键</item>
+        <item>无功能</item>
+    </string-array>
+    
+    <string-array name="swipDown_value">
+        <item>openBar</item>
+        <item>recents</item>
+        <item>home</item>
+        <item>back</item>
+        <item>nothing</item>
+    </string-array>
+    
+     <!-- 左滑呼出的操作 -->
+    <string-array name="swipLeft">
+        <item>查看最近任务</item>
+        <item>调出后台任务</item>
+        <item>模拟返回键</item>
+        <item>无功能</item>
+    </string-array>
+    
+    <string-array name="swipLeft_value">
+        <item>openDraw</item>
+        <item>recents</item>
+        <item>back</item>
+        <item>nothing</item>
+    </string-array>
+
+     <!-- 右滑呼出的操作 -->
+    <string-array name="swipRight">
+        <item>查看最近任务</item>
+        <item>调出后台任务</item>
+        <item>模拟返回键</item>
+        <item>无功能</item>
+    </string-array>
+    
+    <string-array name="swipRight_value">
+        <item>openDraw</item>
+        <item>recents</item>
+        <item>back</item>
+        <item>nothing</item>
+    </string-array>
+    
+    <string-array name="onTouch">
+        <item>无功能</item>
+        <item>调出后台任务</item>
+        <item>模拟返回键</item>
+        <item>模拟HOME键</item>
+        <item>查看最近任务</item>
+    </string-array>
+    
+    <string-array name="onTouch_value">
+        <item>nothing</item>
+        <item>recents</item>
+        <item>back</item>
+        <item>home</item>
+        <item>openDraw</item>
+    </string-array>
+    
+    <string-array name="doubleClick">
+        <item>模拟返回键</item>
+        <item>调出后台任务</item>
+		<item>模拟HOME键</item>
+        <item>查看最近任务</item>
+        <item>打开相机</item>
+        <item>无功能</item>
+    </string-array>
+    
+    <string-array name="doubleClick_value">
+        <item>back</item>
+        <item>recents</item>
+        <item>home</item>
+        <item>openDraw</item>
+        <item>camera</item>
+        <item>nothing</item>
+    </string-array>
+    
+    <string-array name="longClick">
+        <item>模拟HOME键</item>
+        <item>调出后台任务</item>
+        <item>模拟返回键</item>
+        <item>查看最近任务</item>
+        <item>打开相机</item>
+        <item>无功能</item>
+    </string-array>
+    
+    <string-array name="longClick_value">
+        <item>home</item>
+        <item>recents</item>
+        <item>back</item>
+        <item>openDraw</item>
+        <item>camera</item>
+        <item>nothing</item>
+    </string-array>
+
+</resources>

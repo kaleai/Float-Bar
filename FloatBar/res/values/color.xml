@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#373737</color>
+    <color name="bgColor">#ededed</color>
+    <color name="itemBgColor">#fefefe</color>
+    <color name="itemSelectColor">#f0f0f0</color>
+    <color name="listLineColor">#e6e6e6</color>
+    <color name="itemdisabled">#f3f3f4</color>
+
+    <color name="progressColor">#29c944</color>
+	<color name="barColor">#fdcb56</color>
+
+</resources>

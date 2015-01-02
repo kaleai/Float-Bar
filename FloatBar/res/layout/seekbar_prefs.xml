@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_item"
+    android:baselineAligned="false"
+    android:gravity="center_vertical"
+    android:minHeight="50dp"
+    android:paddingLeft="16dp" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:minWidth="0dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+android:id/icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="6dp"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:singleLine="true"
+            android:textColor="#4d4d4d"
+            android:textSize="18.0sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginRight="6dip"
+        android:layout_marginTop="3dip"
+        android:layout_weight="1" >
+
+        <!-- 注意：一定得设置进度条的高度，不然进度条会很高。 -->
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:maxLines="1"
+            android:text="value"
+            android:textSize="10sp"
+            android:textColor="#aaaaaa" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/value"
+            android:maxHeight="3dp"
+            android:minHeight="1dp"
+            android:progressDrawable="@drawable/layer_list_progress"
+            android:thumb="@drawable/thumb" />
+    </RelativeLayout>
+
+</LinearLayout>

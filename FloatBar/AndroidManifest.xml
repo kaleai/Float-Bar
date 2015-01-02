@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kale.floatbar"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!-- 悬浮窗的权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 下拉菜单的权限 -->
+    <permission android:name="android.permission.STATUS_BAR" />
+    <!-- 获得近期任务的权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 启动辅助服务的权限 -->
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
+    <!-- 控制通知栏的权限 -->
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.DISABLE_STATUS_BAR" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ico"
+        android:label="@string/app_name"
+        android:theme="@style/MyAppTheme.Green" >
+        
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+		<activity 
+		    android:name="com.kale.floatbar.DrawSettingActivity"
+		    android:label="抽屉设置"
+		    android:icon="@drawable/title_pic">
+		    <intent-filter>
+                <action android:name="com.kale.intent.action.DRAW_ACTION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+         </activity>
+         
+		<activity android:name="com.kale.floatbar.FloatDisplaySettingActivity"
+		    android:label="显示和位置"
+		    android:icon="@drawable/title_pic">
+		    <intent-filter>
+                <action android:name="com.kale.intent.action.Display_ACTION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+         </activity>
+         
+		
+        <!-- //////////////////// service //////////////////// -->
+        
+        <service
+            android:name="com.kale.floatbar.service.FloatService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilityservice" />
+        </service>
+        
+        <service android:name="com.kale.floatbar.service.DrawService" />
+        
+    </application>
+
+</manifest>

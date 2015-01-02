@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed"
+    android:orientation="vertical" >
+
+    <!-- 和源码一样，用默认的id定义。这样我们可以任意修改布局，什么滚动条、分割线都行。随意发挥！ -->
+
+    <ListView
+        android:id="@android:id/list"
+        android:background="#ededed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/listLineColor"
+        android:dividerHeight="1dp"
+        android:footerDividersEnabled="true"
+        android:fadeScrollbars="true"
+        android:scrollbarFadeDuration="0"
+        android:scrollbars="none" />
+
+</LinearLayout>

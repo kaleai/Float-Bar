@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景图 -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <padding android:top="3dp" android:bottom="3dp"/>
+            <solid android:color="#c2c2c2"/>
+        </shape>
+        </item>
+    <!-- 进度度 -->
+    <item android:id="@android:id/progress" android:drawable="@drawable/pic_progress"/>
+</layer-list>

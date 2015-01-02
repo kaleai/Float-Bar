@@ -1,0 +1,60 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <PreferenceCategory
+        android:layout="@layout/prefs_category_widget"
+        android:title="显示" >
+     
+		<com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="green"
+            android:dialogTitle="选择悬浮窗的背景色"
+            android:entries="@array/drawColor"
+            android:entryValues="@array/drawColor_value"
+            android:key="color"
+            android:layout="@layout/prefs_list_item"
+            android:summary="绿"
+            android:title="颜色" />
+
+        <com.kale.floatbar.preference.MySeekBarPreference
+            android:defaultValue="123"
+            android:key="alpha"
+            android:layout="@layout/prefs_list_item"
+            android:title="透明度" />
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="feedback"
+            android:title="点击反馈"
+            android:widgetLayout="@layout/checkbox_prefs_widget" 
+            android:layout="@layout/prefs_list_item"/>    
+                
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:layout="@layout/prefs_category_widget"
+        android:title="位置" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="rightMode"
+            android:title="靠右"
+            android:widgetLayout="@layout/checkbox_prefs_widget" 
+            android:layout="@layout/prefs_list_item"/>
+        
+        <com.kale.floatbar.preference.MySeekBarPreference
+            android:key="width"
+            android:layout="@layout/prefs_list_item"
+            android:title="宽度" /> 
+            
+		<com.kale.floatbar.preference.MySeekBarPreference
+            android:key="height"
+            android:layout="@layout/prefs_list_item"
+            android:title="高度" />
+                  
+        <com.kale.floatbar.preference.MySeekBarPreference
+            android:key="distance"
+            android:layout="@layout/prefs_list_item"
+            android:title="位置" /> 
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:layout="@layout/prefs_category_end_widget" />
+
+</PreferenceScreen>

@@ -1,0 +1,157 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <PreferenceCategory
+        android:layout="@layout/prefs_category_widget"
+        android:title="启用" >
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="started"
+            android:title="开启悬浮窗"
+            android:widgetLayout="@layout/checkbox_prefs_widget" 
+            android:layout="@layout/prefs_list_item"/>
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:layout="@layout/prefs_category_widget"
+        android:title="显示/位置" >
+        
+    	 <PreferenceScreen
+	          android:layout="@layout/prefs_list_item"
+	          android:title="悬浮窗的颜色和位置"
+	          android:widgetLayout="@layout/arrow_widget" >
+	          <intent android:action="com.kale.intent.action.Display_ACTION" />
+	    </PreferenceScreen>
+	    
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:layout="@layout/prefs_category_widget"
+        android:title="功能" >
+                
+        <com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="closeBar"
+            android:dialogTitle="上滑触发的功能"
+            android:entries="@array/swipUp"
+            android:entryValues="@array/swipUp_value"
+            android:key="swipUp"
+            android:layout="@layout/prefs_list_item"
+            android:summary="收起通知栏"
+            android:title="向上滑动" />
+        
+        <com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="openBar"
+            android:dialogTitle="上滑触发的功能"
+            android:entries="@array/swipDown"
+            android:entryValues="@array/swipDown_value"
+            android:key="swipDown"
+            android:layout="@layout/prefs_list_item"
+            android:summary="呼出通知栏"
+            android:title="向下滑动" />
+        
+        <com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="openDraw"
+            android:dialogTitle="左滑触发的功能"
+            android:entries="@array/swipLeft"
+            android:entryValues="@array/swipLeft_value"
+            android:key="swipLeft"
+            android:layout="@layout/prefs_list_item"
+            android:summary="查看最近任务"
+            android:title="向左滑动" />  
+  
+        <com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="openDraw"
+            android:dialogTitle="右滑触发的功能"
+            android:entries="@array/swipRight"
+            android:entryValues="@array/swipRight_value"
+            android:key="swipRight"
+            android:layout="@layout/prefs_list_item"
+            android:summary="查看最近任务"
+            android:title="向右滑动" /> 
+
+        <com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="nothing"
+            android:dialogTitle="单击触发的功能"
+            android:entries="@array/onTouch"
+            android:entryValues="@array/onTouch_value"
+            android:key="onTouch"
+            android:layout="@layout/prefs_list_item"
+            android:summary="无功能"
+            android:title="单击" /> 
+            
+        <com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="back"
+            android:dialogTitle="双击触发的功能"
+            android:entries="@array/doubleClick"
+            android:entryValues="@array/doubleClick_value"
+            android:key="doubleClick"
+            android:layout="@layout/prefs_list_item"
+            android:summary="返回键"
+            android:title="双击" />  
+            
+		<com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="home"
+            android:dialogTitle="长按触发的功能"
+            android:entries="@array/longClick"
+            android:entryValues="@array/longClick_value"
+            android:key="longClick"
+            android:layout="@layout/prefs_list_item"
+            android:summary="模拟HOME键"
+            android:title="长按" /> 
+                             
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+     	android:layout="@layout/prefs_category_widget"
+        android:title="最近任务抽屉" >
+		
+	     <PreferenceScreen
+	         android:icon="@drawable/draw"
+	         android:layout="@layout/prefs_list_item"
+	         android:title="设置最近任务的抽屉样式"
+	         android:widgetLayout="@layout/arrow_widget" >
+	         <intent android:action="com.kale.intent.action.DRAW_ACTION" />
+	         
+	    </PreferenceScreen>
+	    
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+     	android:layout="@layout/prefs_category_widget"
+        android:title="联系作者" >
+	     
+		<PreferenceScreen
+		    android:icon="@drawable/weibo"
+	        android:layout="@layout/prefs_list_item"
+	        android:title="新浪微博"
+	        android:summary="@string/weiboName">
+	        <intent
+               	android:action="android.intent.action.VIEW"
+               	android:data="http://weibo.com/shark0017" />
+	    </PreferenceScreen>
+	    
+	     <Preference
+	         android:icon="@drawable/mail"
+	         android:key="mail"
+	         android:layout="@layout/prefs_list_item"
+	         android:title="发邮件"
+	         android:summary="developer_kale@qq.com">
+	    </Preference>
+	    
+    </PreferenceCategory>  
+     
+    <PreferenceCategory android:layout="@layout/prefs_category_widget" 
+        android:title="恢复默认设置" >
+
+        <Preference
+            android:icon="@drawable/redef"
+            android:key="returnDefaultSetting"
+            android:layout="@layout/prefs_list_item"
+            android:title="恢复到默认设置" >
+        </Preference>
+        
+    </PreferenceCategory> 
+    
+    <PreferenceCategory android:layout="@layout/prefs_category_end_widget" />
+
+</PreferenceScreen>

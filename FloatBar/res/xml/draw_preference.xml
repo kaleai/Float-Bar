@@ -1,0 +1,42 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:layout="@layout/prefs_category_widget"
+        android:title="抽屉设置" >
+        
+        <CheckBoxPreference
+            android:key="drawMode"
+            android:title="左手模式"
+            android:widgetLayout="@layout/checkbox_prefs_widget" 
+            android:layout="@layout/prefs_list_item"/>
+
+        <com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="black"
+            android:dialogTitle="请选择抽屉的背景色"
+            android:entries="@array/drawColor"
+            android:entryValues="@array/drawColor_value"
+            android:key="drawColor"
+            android:layout="@layout/prefs_list_item"
+            android:summary="黑"
+            android:title="背景色" />
+
+        <com.kale.floatbar.preference.MySeekBarPreference
+            android:key="drawAlpha"
+            android:layout="@layout/prefs_list_item"
+            android:title="透明度" />
+
+        <com.kale.floatbar.preference.MyListPreference
+            android:defaultValue="white"
+            android:dialogTitle="请选择抽屉中的文字颜色"
+            android:entries="@array/drawTextColor"
+            android:entryValues="@array/drawTextColor_value"
+            android:key="drawTextColor"
+            android:layout="@layout/prefs_list_item"
+            android:summary="白"
+            android:title="文字颜色" />
+        
+    </PreferenceCategory>
+    <!-- 最后一行的分割线 -->
+    <PreferenceCategory android:layout="@layout/prefs_category_end_widget" />
+
+</PreferenceScreen>
