@@ -26,11 +26,7 @@ import com.kale.floatbar.receiver.HomeKeyReceiver;
 import com.kale.floatbar.util.Prefs;
 import com.kale.floatbar.util.Util;
 
-/**
- * @author:Jack Tony
- * @tips  :
- * @date  :2014-8-13
- */
+
 /**
  * @author:Jack Tony
  * @tips :
@@ -56,12 +52,12 @@ public class DrawService extends Service {
 	 * 抽屉控件
 	 */
 	DrawerLayout mDrawerLayout;
-	
+
 	/**
-	 * 抽屉内的布局 
+	 * 抽屉内的布局
 	 */
 	LinearLayout drawContent;
-	
+
 	/**
 	 * 监听HOME键的广播接受者
 	 */
@@ -72,7 +68,7 @@ public class DrawService extends Service {
 	 */
 	private List<HashMap<String, Object>> appInfos = new ArrayList<HashMap<String, Object>>();
 
-	//////////////////////////////////////////////////////////////////////////
+	// ////////////////////////////////////////////////////////////////////////
 	/**
 	 * 得到存储的对象
 	 */
@@ -81,13 +77,13 @@ public class DrawService extends Service {
 	 * 抽屉的方向，是从左开的还是从右开的
 	 */
 	private boolean RIGHT_MODE;
-	
+
 	private int DRAW_COLOR;
 	/**
-	 * 设置抽屉背景图的透明度 
+	 * 设置抽屉背景图的透明度
 	 */
 	private int ALPHA;
-	
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
@@ -122,7 +118,7 @@ public class DrawService extends Service {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			
+
 		}
 	}
 
@@ -147,25 +143,23 @@ public class DrawService extends Service {
 		RIGHT_MODE = !prefs.getDrawMode();
 		DRAW_COLOR = prefs.getDrawColor();
 		ALPHA = prefs.getDrawAlpha();
-		
-		
+
 		// 获取浮动窗口视图所在布局
-		layout = (LinearLayout) inflater.inflate(
-				RIGHT_MODE ? R.layout.draw_right : R.layout.draw_left, null);
+		layout = (LinearLayout) inflater.inflate(RIGHT_MODE ? R.layout.draw_right : R.layout.draw_left, null);
 		// 添加悬浮窗的视图
 		mWindowManager.addView(layout, wmParams);
-		
+
 		/**
 		 * 设置抽屉控件的打开方向和监听器
 		 */
 		mDrawerLayout = (DrawerLayout) layout.findViewById(R.id.drawer_layout);
 		mDrawerLayout.setDrawerListener(new MyDrawListener());
 		mDrawerLayout.openDrawer(RIGHT_MODE ? Gravity.RIGHT : Gravity.LEFT);
-		
+
 		/**
 		 * 设置上方的home键
 		 */
-		Button home = (Button)layout.findViewById(R.id.home_key);
+		Button home = (Button) layout.findViewById(R.id.home_key);
 		home.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -173,11 +167,11 @@ public class DrawService extends Service {
 				stopSelf();
 			}
 		});
-		
+
 		/**
 		 * 设置抽屉控件内的背景
 		 */
-		drawContent = (LinearLayout)layout.findViewById(R.id.drawer_content);
+		drawContent = (LinearLayout) layout.findViewById(R.id.drawer_content);
 		drawContent.setBackgroundColor(DRAW_COLOR);
 		drawContent.getBackground().setAlpha(ALPHA);
 
@@ -186,12 +180,10 @@ public class DrawService extends Service {
 		 */
 		Util.reloadButtons(this, appInfos, 20);
 		ListView listView = (ListView) layout.findViewById(R.id.drawer_list);
-		listView.setAdapter(new AppAdapter(this,mWindowManager,layout,
-				mDrawerLayout, appInfos));
-		
+		listView.setAdapter(new AppAdapter(this, mWindowManager, layout, mDrawerLayout, appInfos));
+
 		// 悬浮窗显示确定右上角为起始坐标
-		wmParams.gravity = RIGHT_MODE ? Gravity.RIGHT : Gravity.LEFT
-				| Gravity.TOP;
+		wmParams.gravity = RIGHT_MODE ? Gravity.RIGHT : Gravity.LEFT | Gravity.TOP;
 		// 以屏幕右上角为原点，设置x、y初始值，确定显示窗口的起始位置
 		// 添加动画。参考自：http://bbs.9ria.com/thread-242912-1-1.html
 		wmParams.windowAnimations = (RIGHT_MODE) ? R.style.right_anim : R.style.left_anim;

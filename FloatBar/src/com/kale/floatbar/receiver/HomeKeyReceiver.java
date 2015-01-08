@@ -7,8 +7,8 @@ import android.util.Log;
 
 import com.kale.floatbar.service.DrawService;
 
-public class HomeKeyReceiver extends BroadcastReceiver{
-	
+public class HomeKeyReceiver extends BroadcastReceiver {
+
 	static final String SYSTEM_REASON = "reason";
 	static final String SYSTEM_HOME_KEY = "homekey";// home key
 	static final String SYSTEM_RECENT_APPS = "recentapps";// long home key
@@ -21,9 +21,9 @@ public class HomeKeyReceiver extends BroadcastReceiver{
 			if (reason != null) {
 				if (reason.equals(SYSTEM_HOME_KEY)) {
 					Log.e("homekey", "home键被点击");
-					context.stopService(new Intent(context,DrawService.class));
+					context.stopService(new Intent(context, DrawService.class));
 				} else if (reason.equals(SYSTEM_RECENT_APPS)) {
-					 Log.e("homekey", "长按home键");
+					Log.e("homekey", "长按home键");
 				}
 			}
 		}

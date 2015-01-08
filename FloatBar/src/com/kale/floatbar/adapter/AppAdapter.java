@@ -24,23 +24,22 @@ import android.widget.Toast;
 import com.kale.floatbar.R;
 import com.kale.floatbar.util.Prefs;
 
-
 /**
  * @author:Jack Tony
- * @tips  :显示最近任务的适配器
- * @date  :2014-10-26
+ * @tips :显示最近任务的适配器
+ * @date :2014-10-26
  */
-public class AppAdapter implements ListAdapter{
+public class AppAdapter implements ListAdapter {
 
-	List<HashMap<String,Object>> mAppInfos;
+	List<HashMap<String, Object>> mAppInfos;
 	Context mContext;
 	WindowManager mWindowManager;
 	LinearLayout mLayout;
 	DrawerLayout mDrawerLayout;
 	Prefs prefs;
-	
-	public AppAdapter(Context context,WindowManager windowManager,LinearLayout layout,
-			DrawerLayout drawerLayout, List<HashMap<String,Object>> appInfos) {
+
+	public AppAdapter(Context context, WindowManager windowManager, LinearLayout layout, DrawerLayout drawerLayout,
+			List<HashMap<String, Object>> appInfos) {
 		mAppInfos = appInfos;
 		mContext = context;
 		mWindowManager = windowManager;
@@ -48,6 +47,7 @@ public class AppAdapter implements ListAdapter{
 		mDrawerLayout = drawerLayout;
 		prefs = new Prefs(mContext);
 	}
+
 	@Override
 	public void registerDataSetObserver(DataSetObserver observer) {
 	}
@@ -86,18 +86,16 @@ public class AppAdapter implements ListAdapter{
 		ImageView mImageView = (ImageView) infoView.findViewById(R.id.icon);
 		TextView mTextView = (TextView) infoView.findViewById(R.id.title);
 		mTextView.setTextColor(prefs.getDrawTextColor());
-		
+
 		String title = (String) mAppInfos.get(position).get("title");
 		Drawable icon = (Drawable) mAppInfos.get(position).get("icon");
 		Intent singleIntent = (Intent) mAppInfos.get(position).get("tag");
 
-		
 		infoView.setTag(singleIntent);
 		mImageView.setImageDrawable(icon);
 		mTextView.setText(title);
-		
-		
-		//绑定点击事件，用来进行应用间的跳转
+
+		// 绑定点击事件，用来进行应用间的跳转
 		infoView.setOnClickListener(new SingleAppClickListener());
 		return infoView;
 	}
@@ -126,32 +124,27 @@ public class AppAdapter implements ListAdapter{
 	public boolean isEnabled(int position) {
 		return false;
 	}
-	
-	//点击应用的图标启动应用程序
-	class SingleAppClickListener implements View.OnClickListener{
+
+	// 点击应用的图标启动应用程序
+	class SingleAppClickListener implements View.OnClickListener {
 		@Override
 		public void onClick(View v) {
-			Intent intent = (Intent)v.getTag();
-	        if (intent != null) {
-	            intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);
-	            try {
-	            	mContext.startActivity(intent);
-	            } 
-	            catch (ActivityNotFoundException e) {
-	                Log.w("Recent", "Unable to launch recent task", e);
-	            }
-	            catch (SecurityException e) {
-	            	//e.printStackTrace();
-	            	Toast.makeText(mContext, "该应用不支持快速启动", 0).show();
+			Intent intent = (Intent) v.getTag();
+			if (intent != null) {
+				intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);
+				try {
+					mContext.startActivity(intent);
+				} catch (ActivityNotFoundException e) {
+					Log.w("Recent", "Unable to launch recent task", e);
+				} catch (SecurityException e) {
+					// e.printStackTrace();
+					Toast.makeText(mContext, "该应用不支持快速启动", 0).show();
 				}
-	        }
-	         mDrawerLayout.closeDrawers();
-	        ((Service)mContext).stopSelf();
-	        mWindowManager.removeView(mLayout);
-	       
+			}
+			mDrawerLayout.closeDrawers();
+			((Service) mContext).stopSelf();
+			mWindowManager.removeView(mLayout);
+
 		}
 	}
 }
-
-
-

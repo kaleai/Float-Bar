@@ -14,20 +14,18 @@ import com.kale.floatbar.preference.MySeekBarPreference.OnSeekBarPrefsChangeList
 import com.kale.floatbar.service.DrawService;
 import com.kale.floatbar.util.Prefs;
 
-public class DrawSettingActivity extends PreferenceActivity 
-implements OnPreferenceChangeListener ,OnSeekBarPrefsChangeListener{
+public class DrawSettingActivity extends PreferenceActivity implements OnPreferenceChangeListener, OnSeekBarPrefsChangeListener {
 	CheckBoxPreference checkbox;
 	MyListPreference colorList, textColorList;
 	MySeekBarPreference seekbar;
 
 	@SuppressWarnings("deprecation")
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.prefs_list_content);
 		addPreferencesFromResource(R.xml.draw_preference);
-		
+
 		Prefs prefs = new Prefs(this);
 
 		checkbox = (CheckBoxPreference) findPreference("drawMode");
@@ -36,18 +34,20 @@ implements OnPreferenceChangeListener ,OnSeekBarPrefsChangeListener{
 		colorList.setOnPreferenceChangeListener(this);
 		textColorList = (MyListPreference) findPreference("drawTextColor");
 		textColorList.setOnPreferenceChangeListener(this);
-		
+
 		seekbar = (MySeekBarPreference) findPreference("drawAlpha");
 		seekbar.setDefaultProgressValue(prefs.getDrawAlpha());
 		seekbar.setMax(255);
 		seekbar.setOnSeekBarPrefsChangeListener(this);
-		
+
 		startService(new Intent(DrawSettingActivity.this, DrawService.class));
 	}
 
-	/* （非 Javadoc）
-	 * @see android.preference.Preference.OnPreferenceChangeListener#onPreferenceChange(android.preference.Preference, java.lang.Object)
-	 * seekbar改变时触发
+	/*
+	 * 
+	 * @see
+	 * android.preference.Preference.OnPreferenceChangeListener#onPreferenceChange
+	 * (android.preference.Preference, java.lang.Object) seekbar改变时触发
 	 */
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -57,15 +57,17 @@ implements OnPreferenceChangeListener ,OnSeekBarPrefsChangeListener{
 		return true;
 	}
 
-	/* （非 Javadoc）
-	 * @see com.kale.floatbar.preference.MySeekBarPreference.OnSeekBarPrefsChangeListener#onStopTrackingTouch(java.lang.String, android.widget.SeekBar)
+	/*
+	 * @see
+	 * com.kale.floatbar.preference.MySeekBarPreference.OnSeekBarPrefsChangeListener
+	 * #onStopTrackingTouch(java.lang.String, android.widget.SeekBar)
 	 * seekbar结束选择后触发的动作
 	 */
 	@Override
 	public void onStopTrackingTouch(String key, SeekBar seekBar) {
 		Intent intent = new Intent(DrawSettingActivity.this, DrawService.class);
 		stopService(intent);
-		startService(intent);	
+		startService(intent);
 	}
 
 	@Override
@@ -73,9 +75,7 @@ implements OnPreferenceChangeListener ,OnSeekBarPrefsChangeListener{
 	}
 
 	@Override
-	public void onProgressChanged(String key, SeekBar seekBar, int progress,
-			boolean fromUser) {
+	public void onProgressChanged(String key, SeekBar seekBar, int progress, boolean fromUser) {
 	}
-
 
 }
