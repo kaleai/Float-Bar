@@ -17,8 +17,9 @@ PS:为了增强软件的稳定性和大大提升软件的功能，这个悬浮�
 ##核心技术
 这个项目最主要的功能是模拟系统的各种操作，我这里用了系统的辅助功能（AccessibilityService）来实现。关于辅助功能这个东西网上的说明少的可怜，只能通过看Android官方系统新特性获得，这里说明下如何用系统的辅助功能来实现模拟操作。
 
-**1.注册**  
-    service必须按照规定注册  
+**1.注册**    
+service必须按照规定注册  
+    
     <service
     android:name="com.kale.floatbar.service.FloatService"
     android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
@@ -50,7 +51,7 @@ PS:为了增强软件的稳定性和大大提升软件的功能，这个悬浮�
 **AccessibilityService.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);**
 
 
-> 解释：  
+*解释：*  
 > 通过传入不同的常量给performGlobalActionf(int action)，就可以实现模拟系统的各种操作。该方法提供了模拟返回键，Home键，呼出通知中心，调出最近任务四种操作。
 > 
 > boolean android.accessibilityservice.AccessibilityService.performGlobalAction(int action)
