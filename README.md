@@ -17,58 +17,59 @@ PS:为了增强软件的稳定性和大大提升软件的功能，这个悬浮�
 ##核心技术
 这个项目最主要的功能是模拟系统的各种操作，我这里用了系统的辅助功能（AccessibilityService）来实现。关于辅助功能这个东西网上的说明少的可怜，只能通过看Android官方系统新特性获得，这里说明下如何用系统的辅助功能来实现模拟操作。
 
-1.注册  
+**1.注册**  
 service必须按照规定注册  
-```<service
-            android:name="com.kale.floatbar.service.FloatService"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/accessibilityservice" />
-        </service>
-```
+<service
+android:name="com.kale.floatbar.service.FloatService"
+android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+<intent-filter>
+<action android:name="android.accessibilityservice.AccessibilityService" />
+</intent-filter>
+
+<meta-data
+android:name="android.accessibilityservice"
+android:resource="@xml/accessibilityservice" />
+</service>
+
 这里写上了权限，还要通过xml文件设置具体的权限  
 
-2.通过xml配置具体权限  
+**2.通过xml配置具体权限**  
 在res中的xml中建立一个文件accessibilityservice（可自行定义，和注册时保持一致即可），写上如下代码
   
-```<?xml version="1.0" encoding="utf-8"?>  
-<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"  
-android:accessibilityFeedbackType="feedbackGeneric" 
-android:description="@string/accessibility" />
-```
-3.开启辅助功能
+    <?xml version="1.0" encoding="utf-8"?>  
+    <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:accessibilityFeedbackType="feedbackGeneric" 
+    android:description="@string/accessibility" />
+
+**3.开启辅助功能**  
 用户在使用服务前必须到系统的辅助功能中激活这个应用的辅助功能，这样你自己的AccessibilityService才能正常工作
 
-4.模拟系统操作
+**4.模拟系统操作**  
 
-例子：模拟返回键  
+*例子：模拟返回键*  
 ```AccessibilityService.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);```
 
 
 解释：  
 通过传入不同的常量给performGlobalActionf(int action)，就可以实现模拟系统的各种操作。该方法提供了模拟返回键，Home键，呼出通知中心，调出最近任务四种操作。
 
-    boolean android.accessibilityservice.AccessibilityService.performGlobalAction(int action)
-    
-    
-    public final boolean performGlobalAction (int action) 
-    Added in API level 16
-    Performs a global action. Such an action can be performed at any moment regardless of the current application or user location in that application. For example going back, going home, opening recents, etc.
-    
-    Parameters
-    action  The action to perform. 
-    
-    Returns
-    Whether the action was successfully performed.
-    See Also
-    GLOBAL_ACTION_BACK
-    GLOBAL_ACTION_HOME
-    GLOBAL_ACTION_NOTIFICATIONS
-    GLOBAL_ACTION_RECENTS 
+> boolean android.accessibilityservice.AccessibilityService.performGlobalAction(int action)
+> 
+> 
+> public final boolean performGlobalAction (int action) 
+> Added in API level 16
+> Performs a global action. Such an action can be performed at any moment regardless of the current application or user location in that application. For example going back, going home, opening recents, etc.
+> 
+> Parameters
+> action  The action to perform. 
+> 
+> Returns
+> Whether the action was successfully performed.
+> See Also
+> GLOBAL_ACTION_BACK
+> GLOBAL_ACTION_HOME
+> GLOBAL_ACTION_NOTIFICATIONS
+> GLOBAL_ACTION_RECENTS 
 
 ##截图
 ![](http://7tsyrv.com1.z0.glb.clouddn.com/01.png/medium)
