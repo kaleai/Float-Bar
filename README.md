@@ -47,29 +47,29 @@ PS:为了增强软件的稳定性和大大提升软件的功能，这个悬浮�
 **4.模拟系统操作**  
 
 *例子：模拟返回键*  
-```AccessibilityService.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);```
+**AccessibilityService.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);**
 
 
-解释：  
-通过传入不同的常量给performGlobalActionf(int action)，就可以实现模拟系统的各种操作。该方法提供了模拟返回键，Home键，呼出通知中心，调出最近任务四种操作。
-
-boolean android.accessibilityservice.AccessibilityService.performGlobalAction(int action)
-
-
-public final boolean performGlobalAction (int action) 
-Added in API level 16
-Performs a global action. Such an action can be performed at any moment regardless of the current application or user location in that application. For example going back, going home, opening recents, etc.
-
-Parameters
-action  The action to perform. 
-
-Returns
-Whether the action was successfully performed.
-See Also
-GLOBAL_ACTION_BACK
-GLOBAL_ACTION_HOME
-GLOBAL_ACTION_NOTIFICATIONS
-GLOBAL_ACTION_RECENTS 
+> 解释：  
+> 通过传入不同的常量给performGlobalActionf(int action)，就可以实现模拟系统的各种操作。该方法提供了模拟返回键，Home键，呼出通知中心，调出最近任务四种操作。
+> 
+> boolean android.accessibilityservice.AccessibilityService.performGlobalAction(int action)
+> 
+> 
+> public final boolean performGlobalAction (int action) 
+> Added in API level 16
+> Performs a global action. Such an action can be performed at any moment regardless of the current application or user location in that application. For example going back, going home, opening recents, etc.
+> 
+> Parameters
+> action  The action to perform. 
+> 
+> Returns
+> Whether the action was successfully performed.
+> See Also
+> GLOBAL_ACTION_BACK
+> GLOBAL_ACTION_HOME
+> GLOBAL_ACTION_NOTIFICATIONS
+> GLOBAL_ACTION_RECENTS 
 
 ##截图
 ![](http://7tsyrv.com1.z0.glb.clouddn.com/01.png/medium)
